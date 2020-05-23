@@ -32,7 +32,7 @@ All of the files above are tested as follows:
 
 All of the examples in the book are implemented as unit tests. 
 
-The plaintext phrase `Do not use PC` can be represented as two blocks of five characters: `DONOT USEPC`. If we use a keystream like `KDWUP ONOWT`, then adding the letters in these strings produces the cyphertext `OSKJJ JGTMW`. Subtracking the same keystream restores the original string.
+The plaintext phrase `Do not use PC` can be represented as two blocks of five characters: `DONOT USEPC`. If we use a keystream like `KDWUP ONOWT`, then adding the letters in these strings produces the cyphertext `OSKJJ JGTMW`. Subtracting the same keystream restores the original plaintext.
 
 The book opens with a haiku: 
 
