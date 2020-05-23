@@ -1,12 +1,12 @@
 # Pontifex
 
-### Introduction
+## Introduction
 
 This program implements the Solitaire encryption algorithm as described in the [Appendix](https://www.schneier.com/academic/solitaire/) of _Cryptonomicon_ by Neal Stephenson.
 
 Solitaire is a cyper that can be performed using a deck of playing cards. If two people each have a deck of playing cards in the same order, each can generate a keystream that can be used to encypher and decypher a message. 
 
-### Framework
+## Framework
 
 The code is implemented as a framework with the following files:
 
@@ -19,7 +19,7 @@ The code is implemented as a framework with the following files:
 - **Deck** implements a deck of cards, with functions to perform certain transformations
 - **Extensions** to convert between letters and numbers, and add and subtract letters
 
-### Tests
+## Tests
 
 All of the files above are tested as follows:
 
@@ -28,7 +28,7 @@ All of the files above are tested as follows:
 - **DeckTests** tests that the deck of cards can be created and transformed correctly 
 - **ExtensionsTests** tests converting between letters and numbers, and adding and subtracting letters
 
-### Examples
+## Examples
 
 All of the examples in the book are implemented as unit tests. 
 

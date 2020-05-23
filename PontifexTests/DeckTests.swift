@@ -45,7 +45,7 @@ class DeckTests: XCTestCase {
         for index in 1...52 {
             XCTAssertEqual(deck!.cards[index - 1].index, index)
         }
-        XCTAssertEqual(deck!.cards[52].index, 53) // both jokers are 53
+        XCTAssertEqual(deck!.cards[52].index, 53)
         XCTAssertEqual(deck!.cards[53].index, 53) // both jokers are 53
     }
 
