@@ -74,7 +74,7 @@ class Card: Equatable, CustomStringConvertible {
     }
 }
 
-class Deck: CustomStringConvertible {
+class Deck {
     var cards = [Card]()
     let jokerA: Card
     let jokerB: Card
@@ -90,14 +90,6 @@ class Deck: CustomStringConvertible {
         cards.append(contentsOf: [jokerA, jokerB])
     }
 
-    func printCards() {
-        print("\(self)")
-    }
-
-    var description: String {
-        return "\(cards)"
-    }
-
     func indexOf(card: Card) -> Int {
         return cards.firstIndex(of: card)!
     }
@@ -111,11 +103,14 @@ class Deck: CustomStringConvertible {
     func move(card: Card, downBy: Int) {
         let index = indexOf(card: card)
         cards.remove(at: index)
-        var newIndex = index + downBy
-        while newIndex > cards.count {
-            newIndex -= cards.count
-        }
+        let newIndex = (index + downBy - 1) % cards.count + 1
         cards.insert(card, at: newIndex)
+    }
+
+    func cut(count: Int) {
+        cards = Array([cards[count..<53],
+                       cards[0..<count],
+                       cards[53...53]].joined())
     }
 
     func tripleCut(card1: Card, card2: Card) {
@@ -124,28 +119,8 @@ class Deck: CustomStringConvertible {
         if index1 > index2 {
             (index1, index2) = (index2, index1)
         }
-        let upper = Array(cards.prefix(index1))
-        let lower = Array(cards.suffix(53 - index2))
-        cards = Array(cards[index1...index2])
-
-        var newCards: [Card] = []
-        newCards.append(contentsOf: lower)
-        newCards.append(contentsOf: cards)
-        newCards.append(contentsOf: upper)
-        self.cards = newCards
-    }
-
-    func cut(count: Int) {
-        let last = cards.last!
-        cards = cards.dropLast()
-
-        let upper = Array(cards.prefix(count))
-        let lower = Array(cards.dropFirst(count))
-
-        var newCards: [Card] = []
-        newCards.append(contentsOf: lower)
-        newCards.append(contentsOf: upper)
-        newCards.append(last)
-        self.cards = newCards
+        cards = Array([cards[(index2 + 1)..<cards.count],
+                       cards[index1...index2],
+                       cards[0..<index1]].joined())
     }
 }

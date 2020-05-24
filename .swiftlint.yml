@@ -1,0 +1,48 @@
+disabled_rules: # rule identifiers to exclude from running
+  # - force_cast
+  # - statement_position
+  # - function_parameter_count
+  - file_length
+  - line_length
+  - force_cast
+  - overridden_super_call
+  # - type_name
+  # - xctfail_message
+  # - redundant_string_enum_value
+  # - type_body_length
+  # - identifier_name
+  # - nesting
+  # - vertical_parameter_alignment
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage/
+
+opt_in_rules:
+  - sorted_imports
+  - unneeded_parentheses_in_closure_argument
+  - first_where
+  - toggle_bool
+  - overridden_super_call
+  - modifier_order
+  - convenience_type
+
+file_length:
+  warning: 400
+  error: 450
+
+function_body_length:
+  warning: 300
+  error: 400
+
+type_body_length:
+  warning: 500
+  error: 600
+
+identifier_name:
+  min_length:
+    warning: 1
+
+cyclomatic_complexity:
+  warning: 35
+  error: 35
+  ignores_case_statements: true
