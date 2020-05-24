@@ -31,10 +31,8 @@ class Crypt {
 
     static func encryptable(_ string: String) -> String {
         var value = string.uppercased()
-        for (number, name) in numberNames {
-            if value.contains(number) {
-                value = value.replacingOccurrences(of: number, with: name)
-            }
+        for (number, name) in numberNames where value.contains(number) {
+            value = value.replacingOccurrences(of: number, with: name)
         }
         value = value.components(separatedBy: CharacterSet.letters.inverted).joined(separator: "")
         while value.count % 5 > 0 {
@@ -43,16 +41,7 @@ class Crypt {
         return value
     }
 
-    static let numberNames = [
-        "0": "ZERO",
-        "1": "ONE",
-        "2": "TWO",
-        "3": "THREE",
-        "4": "FOUR",
-        "5": "FIVE",
-        "6": "SIX",
-        "7": "SEVEN",
-        "8": "EIGHT",
-        "9": "NINE"
+    static let numberNames = ["0": "ZERO", "1": "ONE", "2": "TWO", "3": "THREE",
+        "4": "FOUR", "5": "FIVE", "6": "SIX", "7": "SEVEN", "8": "EIGHT", "9": "NINE"
     ]
 }
