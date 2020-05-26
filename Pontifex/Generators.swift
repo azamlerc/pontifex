@@ -87,10 +87,7 @@ class Solitaire: Generator {
         deck.move(card: deck.jokerB, downBy: 2)
         deck.tripleCut(card1: deck.jokerA, card2: deck.jokerB)
         deck.cut(count: deck.cards.last!.index)
-        guard let result = deck.cards[deck.cards.first!.index].letter else {
-            return play()
-        }
-        return result
+        return deck.cards[deck.cards.first!.index].letter ?? play()
     }
 
     func shuffle(letter: Character) {

@@ -18,15 +18,13 @@ class Crypt {
     func encrypt(_ string: String) -> String {
         let value = Crypt.encryptable(string)
         let keystream = generator.keystream(length: value.count)
-        let result = String(zip(value, keystream).map(+))
-        return result
+        return String(zip(value, keystream).map(+))
     }
 
     func decrypt(_ string: String) -> String {
         let value = string.replacingOccurrences(of: " ", with: "")
         let keystream = generator.keystream(length: value.count)
-        let result = String(zip(value, keystream).map(-))
-        return result
+        return String(zip(value, keystream).map(-))
     }
 
     static func encryptable(_ string: String) -> String {
