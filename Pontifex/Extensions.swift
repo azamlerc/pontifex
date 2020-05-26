@@ -31,6 +31,14 @@ extension Int {
         value = (value - 1) % 26 + 1
         return Character(UnicodeScalar(value + 64)!)
     }
+
+    func times(closure: () -> Void) {
+        if self > 0 {
+            for _ in 1...self {
+                closure()
+            }
+        }
+    }
 }
 
 extension Array {

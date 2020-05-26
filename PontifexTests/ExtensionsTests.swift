@@ -35,4 +35,12 @@ class ExtensionsTests: XCTestCase {
             XCTAssertEqual((number + 1).charValue(), letter)
         }
     }
+
+    func testTimes() {
+        var string = ""
+        5.times {
+            string += "foo"
+        }
+        XCTAssertEqual(string, "foofoofoofoofoo")
+    }
 }
