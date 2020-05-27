@@ -51,7 +51,7 @@ class Card: Equatable, CustomStringConvertible {
         }
     }
 
-    var index: Int {
+    var number: Int {
         switch suit {
         case .clubs: return rank
         case .diamonds: return rank + 13
@@ -61,16 +61,12 @@ class Card: Equatable, CustomStringConvertible {
         }
     }
 
-    var number: Int? {
+    var letter: Character? {
         switch suit {
-        case .clubs, .hearts: return rank
-        case .diamonds, .spades: return rank + 13
+        case .clubs, .hearts: return rank.charValue()
+        case .diamonds, .spades: return (rank + 13).charValue()
         case .joker: return nil
         }
-    }
-
-    var letter: Character? {
-        return self.number?.charValue()
     }
 }
 

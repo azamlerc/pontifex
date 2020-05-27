@@ -43,10 +43,10 @@ class DeckTests: XCTestCase {
 
     func testIndex() {
         for index in 1...52 {
-            XCTAssertEqual(deck!.cards[index - 1].index, index)
+            XCTAssertEqual(deck!.cards[index - 1].number, index)
         }
-        XCTAssertEqual(deck!.cards[52].index, 53)
-        XCTAssertEqual(deck!.cards[53].index, 53) // both jokers are 53
+        XCTAssertEqual(deck!.cards[52].number, 53)
+        XCTAssertEqual(deck!.cards[53].number, 53) // both jokers are 53
     }
 
     func testLetters() {
@@ -130,7 +130,7 @@ class DeckTests: XCTestCase {
         XCTAssertEqual(card.description, "Q♣️")
         deck!.move(card: card, downBy: 42)
         XCTAssertEqual(deck!.cards.last, card)
-        deck!.cut(count: deck!.cards.last!.index)
+        deck!.cut(count: deck!.cards.last!.number)
         XCTAssertEqual(deck!.cards.map { $0.description }, ["A♦️", "2♦️", "3♦️", "4♦️", "5♦️", "6♦️", "7♦️", "8♦️", "9♦️", "10♦️", "J♦️", "Q♦️", "K♦️", "A♥️", "2♥️", "3♥️", "4♥️", "5♥️", "6♥️", "7♥️", "8♥️", "9♥️", "10♥️", "J♥️", "Q♥️", "K♥️", "A♠️", "2♠️", "3♠️", "4♠️", "5♠️", "6♠️", "7♠️", "8♠️", "9♠️", "10♠️", "J♠️", "Q♠️", "K♠️", "A🃏", "B🃏", "A♣️", "2♣️", "3♣️", "4♣️", "5♣️", "6♣️", "7♣️", "8♣️", "9♣️", "10♣️", "J♣️", "K♣️", "Q♣️"])
     }
 }

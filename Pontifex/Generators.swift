@@ -35,7 +35,7 @@ class Example: Generator {
 }
 
 class Solitaire: Generator {
-    var deck = Deck()
+    let deck = Deck()
     let shouldMoveJokers = false
 
     init(passphrase: String?) {
@@ -55,8 +55,8 @@ class Solitaire: Generator {
 
     override func next() -> String {
         shuffle()
-        let index = deck.cards.first!.index
-        guard let letter = deck.cards[index].letter else {
+        let number = deck.cards.first!.number
+        guard let letter = deck.cards[number].letter else {
             return next()
         }
         return String(letter)
@@ -66,7 +66,7 @@ class Solitaire: Generator {
         deck.move(card: deck.jokerA, downBy: 1)
         deck.move(card: deck.jokerB, downBy: 2)
         deck.tripleCut(card1: deck.jokerA, card2: deck.jokerB)
-        deck.cut(count: deck.cards.last!.index)
+        deck.cut(count: deck.cards.last!.number)
     }
 
     // The examples in the book say to use the last two letters of the
