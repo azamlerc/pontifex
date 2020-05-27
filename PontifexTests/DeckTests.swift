@@ -50,7 +50,7 @@ class DeckTests: XCTestCase {
     }
 
     func testLetters() {
-        for (index, letter) in (letters + letters).enumerated() {
+        for (index, letter) in (Alphabet.letters + Alphabet.letters).enumerated() {
             XCTAssertEqual(deck!.cards[index].letter, letter)
         }
         XCTAssertEqual(deck!.cards[52].letter, nil)

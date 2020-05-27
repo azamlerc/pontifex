@@ -13,13 +13,13 @@ class CryptTests: XCTestCase {
     var crypt: Crypt?
 
     let generators: [String: Generator] = [
-        "aaaaa": AAAAA(),
+        "default": Generator(),
         "alphabet": Alphabet(),
         "example": Example()
     ]
 
     override func setUp() {
-        crypt = Crypt(generator: AAAAA())
+        crypt = Crypt(generator: Generator())
     }
 
     override func tearDown() {
@@ -30,28 +30,28 @@ class CryptTests: XCTestCase {
         [
             "plain": "Do not use PC!",
             "encryptable": "DONOT USEPC",
-            "aaaaa": "EPOPU VTFQD",
+            "default": "EPOPU VTFQD",
             "alphabet": "EQQSY AZMYM",
             "example": "OSKJJ JGTMW"
         ],
         [
             "plain": "Cryptonomicon",
             "encryptable": "CRYPT ONOMI CONXX",
-            "aaaaa": "DSZQU POPNJ DPOYY",
+            "default": "DSZQU POPNJ DPOYY",
             "alphabet": "DTBTY UUWVS NAALM",
             "example": "NVVKJ DBDJC NSKSN"
         ],
         [
             "plain": "Neal Stephenson",
             "encryptable": "NEALS TEPHE NSONX",
-            "aaaaa": "OFBMT UFQIF OTPOY",
+            "default": "OFBMT UFQIF OTPOY",
             "alphabet": "OGDPX ZLXQO YEBBM",
             "example": "YIXGI ISEEY YWLIN"
         ],
         [
             "plain": "12345",
             "encryptable": "ONETW OTHRE EFOUR FIVEX",
-            "aaaaa": "POFUX PUISF FGPVS GJWFY",
+            "default": "POFUX PUISF FGPVS GJWFY",
             "alphabet": "PPHXB UAPAO PRBIG VZNXR",
             "example": "ZRBOM DHWOY PJLPH UWKBR"
         ]

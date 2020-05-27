@@ -20,7 +20,7 @@ class GeneratorsTests: XCTestCase {
     }
 
     func testAAAA() {
-        let generator = AAAAA()
+        let generator = Generator()
         XCTAssertEqual(generator.keystream(length: 5), "AAAAA")
         XCTAssertEqual(generator.keystream(length: 20).blocks(), "AAAAA AAAAA AAAAA AAAAA")
     }
@@ -28,7 +28,7 @@ class GeneratorsTests: XCTestCase {
     func testAlphabet() {
         let generator = Alphabet()
         XCTAssertEqual(generator.keystream(length: 5), "ABCDE")
-        XCTAssertEqual(generator.keystream(length: 26), letters)
+        XCTAssertEqual(generator.keystream(length: 26), Alphabet.letters)
     }
 
     func testExample() {

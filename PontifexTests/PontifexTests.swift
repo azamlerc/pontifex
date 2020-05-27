@@ -9,8 +9,6 @@
 @testable import Pontifex
 import XCTest
 
-let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
 class PontifexTests: XCTestCase {
 
     override func setUp() {

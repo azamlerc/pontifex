@@ -30,17 +30,9 @@ class ExtensionsTests: XCTestCase {
     }
 
     func testValues() {
-        for (number, letter) in letters.enumerated() {
+        for (number, letter) in Alphabet.letters.enumerated() {
             XCTAssertEqual(letter.intValue(), number + 1)
             XCTAssertEqual((number + 1).charValue(), letter)
         }
-    }
-
-    func testTimes() {
-        var string = ""
-        5.times {
-            string += "foo"
-        }
-        XCTAssertEqual(string, "foofoofoofoofoo")
     }
 }
