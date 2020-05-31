@@ -85,7 +85,8 @@ class CryptTests: XCTestCase {
         generators.forEach { _, generator in
             crypt!.generator = generator
             testCases.forEach { test in
-                XCTAssertEqual(crypt?.decrypt((crypt?.encrypt(test["plain"]!))!).blocks(), test["encryptable"])
+                let encrypted = crypt?.encrypt(test["plain"]!)
+                XCTAssertEqual(crypt?.decrypt(encrypted!).blocks(), test["encryptable"])
             }
         }
     }

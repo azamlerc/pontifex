@@ -42,8 +42,11 @@ class Solitaire: Generator {
         super.init()
 
         if let pass = passphrase {
-            let phrase = Crypt.encryptable(pass)
-            for letter in String(phrase.dropLast(2)) {
+            var phrase = pass.uppercased()
+            if shouldMoveJokers {
+                phrase = String(phrase.dropLast(2))
+            }
+            for letter in phrase {
                 shuffle()
                 deck.cut(count: letter.intValue())
             }

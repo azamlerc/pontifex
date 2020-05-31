@@ -42,8 +42,18 @@ class GeneratorsTests: XCTestCase {
         XCTAssertEqual(generator.keystream(length: 9).map { $0.intValue() }, [4, 23, 10, 24, 8, 25, 18, 6, 4])
     }
 
+    func testSolitaire1b() {
+        let generator = Solitaire(passphrase: nil)
+        XCTAssertEqual(generator.keystream(length: 10), "DWJXHYRFDG")
+    }
+
     func testSolitaire2() {
         let generator = Solitaire(passphrase: "FOO")
         XCTAssertEqual(generator.keystream(length: 15).map { $0.intValue() }, [8, 19, 7, 25, 20, 9, 8, 22, 6, 17, 5, 26, 17, 12, 22])
+    }
+
+    func testSolitaire2b() {
+        let generator = Solitaire(passphrase: "FOO")
+        XCTAssertEqual(generator.keystream(length: 15), "HSGYTIHVFQEZQLV")
     }
 }
